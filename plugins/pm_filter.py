@@ -249,6 +249,8 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
     #     BUTTONS[key+"1"] = search
     search = FRESH.get(key)
     search = search.replace(' ', '_')
+    search = search.replace('complete', 'com')
+    search = search.replace('combined', 'com')
     btn = []
     for i in range(0, len(LANGUAGES)-1, 2):
         btn.append([
