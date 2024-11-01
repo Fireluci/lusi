@@ -4,7 +4,6 @@ import ast
 import math
 import random
 import pytz
-from fuzzywuzzy import process
 from datetime import datetime, timedelta, date, time
 lock = asyncio.Lock()
 
@@ -17,10 +16,11 @@ from info import *
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, get_tutorial, send_all, imdb
+from utils import get_size, is_subscribed, get_poster, temp, get_settings, save_group_settings, get_shortlink, get_tutorial, send_all, imdb, search_gagala
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import del_all, find_filter, get_filters
+from fuzzywuzzy import process
 import logging
 
 logger = logging.getLogger(__name__)
@@ -1586,7 +1586,7 @@ async def auto_filter(client, msg, spoll=False):
             search = search.lower()
             find = search.split(" ")
             search = ""
-            removes = ["in","upload", "series", "and", "&", "hollywood", "audio", "language", "horror", "movi", "movie", "hd", "4k", "film", "seasons", "dub", "dubbed", "send", "dupped", "2k", "bollywood", "anime", "netflix", "print", "file"]
+            removes = ["in","upload", "series", "and", "&", "hollywood", "kdrama", "audio", "language", "horror", "movi", "movie", "hd", "4k", "film", "seasons", "dub", "dubbed", "send", "dupped", "2k", "bollywood", "anime", "netflix", "print", "file"]
             for x in find:
                 if x in removes:
                     continue
@@ -1810,7 +1810,7 @@ async def advantage_spell_chok(client, msg):
     settings = await get_settings(msg.chat.id)
     find = mv_rqst.split(" ")
     query = ""
-    removes = ["in","upload", "series", "and", "&", "hollywood", "audio", "language", "horror", "movi", "movie", "hd", "4k", "film", "seasons", "dub", "dubbed", "send", "dupped", "2k", "bollywood", "anime", "netflix", "print", "file"]
+    removes = ["in","upload", "series", "and", "&", "kdrama", "hollywood", "audio", "language", "horror", "movi", "movie", "hd", "4k", "film", "seasons", "dub", "dubbed", "send", "dupped", "2k", "bollywood", "anime", "netflix", "print", "file"]
     for x in find:
         if x in removes:
             continue
