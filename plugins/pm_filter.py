@@ -203,6 +203,9 @@ async def next_page(bot, query):
 
     try:
         await query.message.edit_text(text=cap, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
+    
+    except pyrogram.errors.QueryIdInvalid:
+        pass
     except MessageNotModified:
         pass
     await query.answer()
