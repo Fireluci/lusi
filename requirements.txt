@@ -27,3 +27,6 @@ colorama
 
 fuzzywuzzy
 python-Levenshtein
+psutil
+Flask
+gunicorn
